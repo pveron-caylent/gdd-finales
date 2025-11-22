@@ -65,5 +65,5 @@ Sabiendo que no hay errores de sintaxis en el siguiente código, determine qué 
 A) El proceso B ingresa el país id = 1000 porque es una transacción no confirmada.  
 B) El proceso A no ingresa el país id = 1000 porque se bloquea con la transacción no confirmada B.  
 C) Se termina registrando la provincia pero no el país dado que se genera interbloqueo.  
-D) Se registra el país pero no la provincial dado que aborta antes el proceso A por error de PK.  
+D) Se registra el país pero no la provincia dado que aborta antes el proceso A por error de PK.  
 E) Ninguna de las anteriores.
