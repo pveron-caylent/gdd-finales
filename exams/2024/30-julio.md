@@ -45,7 +45,7 @@ Comparar procesos OLTP vs. OLAP (DDS) en cuanto a su utilización de base de dat
 ---
 
 ### **3.a)**  
-Cree el/los objetos de base de datos necesarios para implementar la posibilidad de poder borrar una Ciudad con un comando `DELETE`.
+Cree el/los objetos de base de datos necesarios para implementar la posibilidad de poder borrar una provincia con un comando `DELETE`.
 
 ---
 
