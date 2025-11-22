@@ -4,7 +4,7 @@
 ## Contestar por Verdadero o Falso
 
 ### **1.a)**  
-Un árbol binario completo es un árbol N-ario con N-2, donde todos sus niveles están llenos.
+Un árbol binario completo es un árbol N-ario con N=2, donde todos sus niveles están llenos.
 
 ### **1.b)**  
 Las funciones creadas por el usuario (objeto FUNCTION) en T-SQL no permiten sentencias INSERT/DELETE/UPDATE en su cuerpo.
