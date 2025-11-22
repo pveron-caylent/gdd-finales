@@ -39,19 +39,8 @@ Comparar procesos OLTP vs. OLAP (DDS) en cuanto a su utilización de base de dat
 
 ## **3)** Dado el siguiente modelo de datos resuelva:
 
-### País
-- **IDPAIS:** integer  
-- **DETALLE:** varchar(20)
+<img width="576" height="101" alt="image" src="https://github.com/user-attachments/assets/075bb0c9-06cc-406b-b51b-5094a69e745b" />
 
-### Provincia
-- **IDPCIA:** integer  
-- **IDPAIS:** integer  
-- **HABITANTES:** integer
-
-### Ciudad
-- **IDCIUDAD:** integer  
-- **IDPCIA:** integer  
-- **NOMBRE:** varchar(20)
 
 ---
 
