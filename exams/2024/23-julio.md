@@ -22,7 +22,8 @@ Indique cómo se comportan los niveles **READ COMMITTED** y **REPEATABLE READ** 
 ## Dado el siguiente modelo:
 
 <img width="419" height="397" alt="image" src="https://github.com/user-attachments/assets/34db5225-46d9-480b-8517-54b4f056befe" />
-<img width="741" height="291" alt="image" src="https://github.com/user-attachments/assets/2a3ce20c-ee5e-4e53-999d-ec5708136816" />
+<img width="741" height="291" alt="image" src="https://github.com/user-attachments/assets/ea5359bd-a270-4fba-98b3-3052bd30e2c2" />
+
 
 Y sabiendo que:
 
