@@ -37,3 +37,70 @@ GROUP BY
     usu.detalle_estado;
 ```
 ### 3.b) 
+
+```sql
+CREATE TRIGGER TR_AUTENTICACION
+ON Login1
+AFTER INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @USER INT;
+    DECLARE @ESTADO_LOGIN INT;
+    DECLARE @INTENTOS INT;
+    DECLARE @PASSWORD VARCHAR(50);
+    DECLARE @ESTADO INT;
+    DECLARE @PERFIL INT;
+
+    -- Tomar el usuario afectado (1 fila por evaluación)
+    SELECT @USER = id_usuario,
+           @PERFIL = id_perfil,
+           @ESTADO_LOGIN = estado_login
+    FROM inserted;
+
+    -- Contar intentos fallidos de hoy
+    SELECT @INTENTOS = COUNT(*)
+    FROM Login1
+    WHERE id_usuario = @USER
+      AND estado_login = 0
+      AND CONVERT(date, fecha_hora) = CONVERT(date, GETDATE());
+
+    -- 1) BLOQUEAR si llegó a 3 fallos
+    IF @ESTADO_LOGIN = 0 AND @INTENTOS >= 3
+    BEGIN
+        UPDATE Usuario
+        SET estado = 0,
+            detalle_estado = 'Bloqueado'
+        WHERE id_usuario = @USER;
+
+        -- Registrar en logs el bloqueo
+        INSERT INTO Login1 (id_usuario, id_perfil, fecha_hora, estado_login)
+        VALUES (@USER, @PERFIL, GETDATE(), 0);  -- 0 = fallo
+
+        ROLLBACK TRANSACTION;   -- No permitir el 4to fallo
+        RETURN;
+    END
+
+    -- 2) REACTIVAR si password genérico y estado_login = 2 (primer ingreso)
+    SELECT @PASSWORD = password,
+           @ESTADO = estado
+    FROM Usuario
+    WHERE id_usuario = @USER;
+
+    IF @ESTADO = 0                       -- bloqueado
+       AND @PASSWORD = '00x@T3st'        -- clave genérica
+       AND @ESTADO_LOGIN = 2             -- primer ingreso
+    BEGIN
+        UPDATE Usuario
+        SET estado = 1,
+            detalle_estado = 'Activo'
+        WHERE id_usuario = @USER;
+
+        -- Registrar LOGIN como Primer ingreso
+        INSERT INTO Login1 (id_usuario, id_perfil, fecha_hora, estado_login)
+        VALUES (@USER, @PERFIL, GETDATE(), 2);   -- 2 = Primer ingreso
+    END
+END;
+GO
+```
