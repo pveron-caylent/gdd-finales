@@ -50,11 +50,11 @@ Escriba una consulta que, para todos los usuarios, retorne:
 ---
 
 ## **3.b)**  
-Crear el/los objetos de base de datos para que cuando un usuario falle tres veces en autenticarse en el mismo día:
-
-- La cuenta quede **bloqueada**  
-- `detalle_estado` pase a **'Bloqueado'**  
-- Se registre en la tabla de logs el evento correspondiente  
-- También se debe asignar automáticamente el perfil **“00x@T3st”** cuando `estado_login = 2` (primer ingreso)
-
+Crear el/los objetos de base de datos necesarios para que:
+- Cuando un usuario falle tres veces en autenticarse en el mismo día,
+su cuenta quede bloqueada y no permita su ingreso
+(no se deben grabar renglones de login fallidos adicionales en el mismo día).
+- Si el usuario se encuentra bloqueado o inactivo y posee el password genérico "00x@T3st",
+se reactive su cuenta (actualizando los campos de estado del usuario),
+permitiendo su ingreso y registrando el login como "Primer ingreso" (estado_login = 2).
 **Nota:** Debe considerarse que pueden acceder varios usuarios a la vez desde distintas aplicaciones.
