@@ -21,6 +21,8 @@
 
 ## 3.a) Dadas las siguientes tablas:
 
+<img width="576" height="159" alt="image" src="https://github.com/user-attachments/assets/9506aad4-1978-4524-b4f7-37e3fc4b1ac2" />
+
 ```
 USUARIOS
 ---------
