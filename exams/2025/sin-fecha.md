@@ -37,13 +37,13 @@ IdUsuario int (fk)
 Fecha date not null
 ```
 
-*La consigna del examen continúa indicando que los usuarios ingresan al sistema y se registran sus ingresos, etc.*
+La interacción entre las tablas: todos los usuarios de un aplicativo, la segunda tabla registra los logueos al mismo, el campo Fecha no contiene la hora; por lo que cuando un usuario ingresa más de una vez en el mismo día, se guarda un solo registro en la tabla. La tabla Ingresos contiene el IdUsuario y la primera fecha de ingreso de ese día.
+3.a) Lea la creación de la vista que detalle un número de líneas y que indique el último ingreso del aplicativo de cada usuario mostrando cómo sería la vista sobre la tabla con: nombre, apellido y la fecha de ingreso más reciente indicando la fecha de alta del usuario como uno de los campos.
 
 ---
 
-## 3.a) Crear una vista
+## 3.a) La empresa solicita que se la cree una vista que obtenga el último ingreso del aplicativo de cada usuario mostrando cómo sería la vista sobre la tabla con: nombre, apellido y la fecha de ingreso más reciente, si no accedio, mostrar la fecha de alta del usuario como uno de los campos.
 
-Se presenta la vista original del examen:
 
 ```
 CREATE VIEW VW_final (nombre, apellido, ingreso)
