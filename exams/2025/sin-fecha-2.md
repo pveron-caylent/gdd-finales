@@ -29,6 +29,8 @@ Desarrollar el concepto de join, enumere y explique cada uno de los tipos. Ejemp
 
 Dado el siguiente modelo:
 
+<img width="155" height="55" alt="image" src="https://github.com/user-attachments/assets/7e5da6bb-f3cf-494e-9be6-68d7f49e73ef" />
+
 ```
 TABLITAFINAL  
 numero (unique) int
